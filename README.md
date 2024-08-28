@@ -41,7 +41,7 @@ To install and run this application locally:
 
 The application uses the following environment variables:
 
-- `port`: The port number the server will listen on (default: 8080).
+- `port`: The port number the server will listen on (default: 5000).
 - `secretkey`: Secret key for generating JWT access tokens.
 - `refreshSecretkey`: Secret key for generating JWT refresh tokens.
 - `mongo_URI`: MongoDB connection string.
@@ -54,7 +54,7 @@ Run the application using:
 npm start
 ```
 
-The server will run on the specified port (default: 8080).
+The server will run on the specified port (default: 5000).
 
 ## API Endpoints
 
@@ -78,16 +78,11 @@ The server will run on the specified port (default: 8080).
 
 ### Product Routes
 
-- **GET `/product`**: Get a list of products, optionally filtered or sorted by category, name, or price.
-  - Query Params: `category`, `name`, `sort` (`asc` or `desc`).
+- **GET `/product`**: Get a list of products
   - Response: `200 OK` with product data.
 
 - **GET `/product/:id`**: Get details of a specific product by ID.
   - Response: `200 OK` with product data, `404 Not Found` if the product doesn't exist.
-
-- **POST `/product/search`**: Search for products by name or description.
-  - Request Body: `{ text }`
-  - Response: `200 OK` with matching products, `404 Not Found` if no matches found.
 
 - **POST `/product/create`**: Add a new product (requires 'write' role).
   - Request Body: `{ name, category, price, description, ... }`
